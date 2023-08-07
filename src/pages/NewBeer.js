@@ -27,7 +27,6 @@ function NewBeer({ apiBeerUrl }) {
     };
 
     axios.post(apiBeerUrl + "/new", body).then((response) => {
-      console.log("new beer:", body);
       setName("");
       setTagline("");
       setDescription("");
@@ -92,7 +91,7 @@ function NewBeer({ apiBeerUrl }) {
           onChange={(e) => setContributedBy(e.target.value)}
           value={contributedBy}
         />
-        <button type="submit">create a new beer</button>
+        <button type="submit">add new</button>
       </form>
     </>
   );
