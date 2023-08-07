@@ -32,11 +32,7 @@ function SingleBeer({ apiBeerUrl }) {
           </div>
           <p>{singleBeer.description}</p>
           <p className="singlebeer-description">
-            <b>
-              {singleBeer.contributed_by
-                ? singleBeer.contributed_by.replace(/<[^>]+>/g, "").trim()
-                : ""}{" "}
-            </b>
+            <b>{singleBeer.contributed_by}</b>
           </p>
         </div>
       </div>

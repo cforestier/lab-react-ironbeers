@@ -18,8 +18,11 @@ function App() {
           path="/beers/:id"
           element={<SingleBeer apiBeerUrl={apiBeerUrl} />}
         />
-        <Route path="/randombeer" element={<RandomBeer />} />
-        <Route path="/newbeer" element={<NewBeer />} />
+        <Route
+          path="/randombeer"
+          element={<RandomBeer apiBeerUrl={apiBeerUrl} />}
+        />
+        <Route path="/newbeer" element={<NewBeer apiBeerUrl={apiBeerUrl} />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

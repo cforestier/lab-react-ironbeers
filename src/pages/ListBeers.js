@@ -26,7 +26,9 @@ function ListBeers({ apiBeerUrl }) {
                 <h3>{beer.tagline}</h3>
                 <p>
                   <b>Created by: </b>
-                  {beer.contributed_by.replace(/<[^>]+>/g, "").trim()}
+                  {beer.contributed_by
+                    ? beer.contributed_by.replace(/<[^>]+>/g, "").trim()
+                    : null}
                 </p>
               </div>
             </div>
