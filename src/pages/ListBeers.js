@@ -21,29 +21,39 @@ function ListBeers({ apiBeerUrl }) {
     beer.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
 
+  // console.log(
+  //   beersFiltered.sort(function (a, b) {
+  //     return a.name - b.name;
+  //   })
+  // );
+
   return (
     <>
       <Header />
       <label>filter the beers</label>
       <input type="text" onChange={handleSearch} />
       {beersFiltered.length ? (
-        beersFiltered.map((beer) => (
-          <div key={beer._id} className="list-beers">
-            <img src={beer.image_url} alt={beer.name} />
-            <div className="beer-details">
-              <Link to={beer._id}>
-                <h2>{beer.name}</h2>
-              </Link>
-              <h3>{beer.tagline}</h3>
-              <p>
-                <b>Created by: </b>
-                {beer.contributed_by
-                  ? beer.contributed_by.replace(/<[^>]+>/g, "").trim()
-                  : null}
-              </p>
+        beersFiltered
+          .sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+          })
+          .map((beer) => (
+            <div key={beer._id} className="list-beers">
+              <img src={beer.image_url} alt={beer.name} />
+              <div className="beer-details">
+                <Link to={beer._id}>
+                  <h2>{beer.name}</h2>
+                </Link>
+                <h3>{beer.tagline}</h3>
+                <p>
+                  <b>Created by: </b>
+                  {beer.contributed_by
+                    ? beer.contributed_by.replace(/<[^>]+>/g, "").trim()
+                    : null}
+                </p>
+              </div>
             </div>
-          </div>
-        ))
+          ))
       ) : (
         <h2>no food to show</h2>
       )}
