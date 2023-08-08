@@ -19,6 +19,12 @@ code {
   text-align: left;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .list-beers {
   display: flex;
   margin-left: 5vw;
